@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 body {
@@ -19,3 +20,8 @@ body {
     font-size: 1.6rem;
     font-weight: 700;
 }
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86

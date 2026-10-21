@@ -27,8 +27,13 @@ return [
     | same cache driver to group types of items stored in your caches.
     |
     | Supported drivers: "array", "database", "file", "memcached",
+<<<<<<< HEAD
     |                    "redis", "dynamodb", "octane",
     |                    "failover", "null"
+=======
+    |                    "redis", "dynamodb", "storage", "octane",
+    |                    "session", "failover", "null"
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
     |
     */
 
@@ -50,7 +55,17 @@ return [
         'file' => [
             'driver' => 'file',
             'path' => storage_path('framework/cache/data'),
+<<<<<<< HEAD
             'lock_path' => storage_path('framework/cache/data'),
+=======
+            'lock_path' => storage_path('framework/cache/locks'),
+        ],
+
+        'storage' => [
+            'driver' => 'storage',
+            'disk' => env('CACHE_STORAGE_DISK'),
+            'path' => env('CACHE_STORAGE_PATH', 'framework/cache/data'),
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
         ],
 
         'memcached' => [

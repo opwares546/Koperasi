@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\HasMany;
+=======
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
 
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
@@ -28,6 +31,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+<<<<<<< HEAD
             'is_active' => 'boolean',
         ];
     }
@@ -47,3 +51,8 @@ class User extends Authenticatable
         return $this->role === 'admin';
     }
 }
+=======
+        ];
+    }
+}
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86

@@ -7,16 +7,31 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\View\View;
+=======
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+use Inertia\Response;
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
 
 class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
      */
+<<<<<<< HEAD
     public function create(): View
     {
         return view('auth.login');
+=======
+    public function create(): Response
+    {
+        return Inertia::render('Auth/Login', [
+            'canResetPassword' => Route::has('password.request'),
+            'status' => session('status'),
+        ]);
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
     }
 
     /**

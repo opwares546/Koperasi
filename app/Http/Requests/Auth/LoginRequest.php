@@ -42,6 +42,7 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
+<<<<<<< HEAD
         $credentials = $this->only('email', 'password');
         $credentials['is_active'] = true;
 
@@ -52,11 +53,21 @@ class LoginRequest extends FormRequest
             \Illuminate\Support\Facades\RateLimiter::hit($this->throttleKey());
 
             throw \Illuminate\Validation\ValidationException::withMessages([
+=======
+        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
                 'email' => trans('auth.failed'),
             ]);
         }
 
+<<<<<<< HEAD
         \Illuminate\Support\Facades\RateLimiter::clear($this->throttleKey());
+=======
+        RateLimiter::clear($this->throttleKey());
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
     }
 
     /**

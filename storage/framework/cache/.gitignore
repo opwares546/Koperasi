@@ -1,3 +1,7 @@
 *
 !data/
+<<<<<<< HEAD
+=======
+!locks/
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
 !.gitignore

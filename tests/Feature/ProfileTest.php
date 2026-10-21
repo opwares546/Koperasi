@@ -91,7 +91,11 @@ class ProfileTest extends TestCase
             ]);
 
         $response
+<<<<<<< HEAD
             ->assertSessionHasErrorsIn('userDeletion', 'password')
+=======
+            ->assertSessionHasErrors('password')
+>>>>>>> cc2282c4008e976e311c2f097f7febbee9aa6c86
             ->assertRedirect('/profile');
 
         $this->assertNotNull($user->fresh());
