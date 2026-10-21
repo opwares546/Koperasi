@@ -9,9 +9,9 @@
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container-fluid px-4">
-            <a class="navbar-brand fw-bold" href="{{ route('anggota.index') }}">
-                KoperasiKu
-            </a>
+            <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">
+    KoperasiKu
+</a>
             <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarMenu"
                 aria-controls="navbarMenu" aria-expanded="false"

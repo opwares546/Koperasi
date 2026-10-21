@@ -11,12 +11,13 @@ return new class extends Migration
         Schema::create('pinjaman', function (Blueprint $table) {
             $table->id();
             $table->foreignId('anggota_id')->constrained('anggota')->restrictOnDelete();
-            $table->decimal('jumlah_pengajuan', 15, 2);
-            $table->decimal('jumlah_disetujui', 15, 2)->nullable();
-            $table->decimal('bunga_persen', 5, 2);
-            $table->integer('tenor_bulan');
-            $table->string('status')->default('menunggu');
-            $table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('user_id')->constrained('users'); // Kasir/Petugas
+            $table->date('tanggal_pinjam');
+            $table->decimal('jumlah', 15, 2);
+            $table->integer('lama_angsuran'); // dalam bulan
+            $table->decimal('bunga', 5, 2); // persentase bunga
+            $table->enum('status', ['belum_lunas', 'lunas'])->default('belum_lunas');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

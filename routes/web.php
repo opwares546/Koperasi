@@ -4,24 +4,27 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\SimpananController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PinjamanController;
 use App\Http\Controllers\AngsuranController;
+use App\Http\Controllers\DashboardController; // Pastikan ini ditambahkan
+use Illuminate\Support\Facades\Route;
 
+// Langsung arahkan halaman utama (/) ke login atau dashboard
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Gunakan DashboardController, bukan function kosongan lagi
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Rute untuk modul Data Anggota dan Simpanan
+    // Rute untuk modul utama
     Route::resource('anggota', AnggotaController::class);
     Route::resource('simpanan', SimpananController::class);
     Route::resource('pinjaman', PinjamanController::class);
